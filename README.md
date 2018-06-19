@@ -85,7 +85,42 @@ az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} --tenan
 
 * Run `terraform show`.
 
-* Run `az aks list -g ${CHANGEME_RESOURCE_GROUP_NAME}`.
+* Check which SSH key was used.
+
+`terraform output ssh_key_data`
+
+* Run `az aks list -g $(terraform output resource_group_name)`.
+
+* Interact with the Kubernetes cluster.
+
+```shell
+
+terraform output kube_config > kube_config.yml
+export KUBECONFIG=kube_config.yml
+kubectl get pods --all-namespaces
+
+```
+
+Similar below output will be shown.
+
+```text
+
+NAMESPACE     NAME                                    READY     STATUS    RESTARTS   AGE
+default       nginx-example                           1/1       Running   0          47m
+kube-system   azureproxy-79c5db744-64tx6              1/1       Running   2          50m
+kube-system   heapster-55f855b47-87kjk                2/2       Running   0          48m
+kube-system   kube-dns-v20-7c556f89c5-995qt           3/3       Running   0          50m
+kube-system   kube-dns-v20-7c556f89c5-v8pc8           3/3       Running   0          50m
+kube-system   kube-proxy-nnkqr                        1/1       Running   0          50m
+kube-system   kube-svc-redirect-xts9c                 1/1       Running   0          50m
+kube-system   kubernetes-dashboard-546f987686-n6k54   1/1       Running   3          50m
+kube-system   tunnelfront-784f4c96c5-spgw9            1/1       Running   0          50m
+
+```
+
+* Run `kubectl proxy`. Open browser to below page.
+
+`http://localhost:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/overview`
 
 * Run `terraform destroy`.
 
