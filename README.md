@@ -38,7 +38,7 @@ export TF_VAR_tenant_id="CHANGEME_TENANT_ID"
 
 ```shell
 
-az account set --subscription=$(ARM_SUBSCRIPTION_ID)
+az account set --subscription=${ARM_SUBSCRIPTION_ID}
 az account list
 
 ```
@@ -47,7 +47,7 @@ az account list
 
 ```shell
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$(ARM_SUBSCRIPTION_ID)"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${ARM_SUBSCRIPTION_ID}"
 
 ```
 
@@ -65,11 +65,11 @@ The output of the `create-for-rbac` command is in the following format:
 
 ```
 
-* Login using the service principle. The `appId` (`$ARM_CLIENT_ID`), `tenant` (`$ARM_TENANT_ID`), and `password` (`$ARM_CLIENT_SECRET`) values are used for authentication. The `displayName` is used when searching for an existing service principal.
+* Login using the service principle. The `appId` (`${ARM_CLIENT_ID}`), `tenant` (`${ARM_TENANT_ID}`), and `password` (`${ARM_CLIENT_SECRET}`) values are used for authentication. The `displayName` is used when searching for an existing service principal.
 
 ```shell
 
-az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
+az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} --tenant ${ARM_TENANT_ID}
 
 ```
 
@@ -85,7 +85,7 @@ az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $A
 
 * Run `terraform show`.
 
-* Run `az aks list -g $(CHANGEME_RESOURCE_GROUP_NAME)`.
+* Run `az aks list -g ${CHANGEME_RESOURCE_GROUP_NAME}`.
 
 * Run `terraform destroy`.
 
