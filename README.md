@@ -18,10 +18,6 @@ export TF_VAR_tenant_id="CHANGEME_TENANT_ID"
 
 ```
 
-[terraform-link]: https://www.terraform.io/
-[azure-link]: https://azure.microsoft.com/
-[terraform-link-docs-configuration-variables]: https://www.terraform.io/docs/configuration/variables.html#environment-variables
-
 * Run `terraform init`.
 
 * Run `terraform plan`.
@@ -31,3 +27,7 @@ export TF_VAR_tenant_id="CHANGEME_TENANT_ID"
 * Run `terraform show`.
 
 * Run `terraform destroy`.
+
+[terraform-link]: https://www.terraform.io/
+[azure-link]: https://azure.microsoft.com/
+[terraform-link-docs-configuration-variables]: https://www.terraform.io/docs/configuration/variables.html#environment-variables
