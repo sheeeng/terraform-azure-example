@@ -2,12 +2,12 @@ variable "location" {}
 
 variable "resource_group_name" {}
 
-variable "label" {}
+variable "environment_tag" {}
 
-variable subscription_id {}
+variable "subscription_id" {}
 
-variable client_id {}
+variable "client_id" {}
 
-variable client_secret {}
+variable "client_secret" {}
 
-variable tenant_id {}
+variable "tenant_id" {}

@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "test" {
   location = "${var.location}"
 
   tags {
-    environment = "${var.label}"
+    environment = "${var.environment_tag}"
     another_tag = "another_tag_value"
   }
 }
@@ -43,7 +43,7 @@ resource "azurerm_kubernetes_cluster" "test" {
   }
 
   tags {
-    Environment = "${var.client_id}"
+    Environment = "${var.environment_tag}"
     FirstTag    = "FirstTag"
     SecondTag   = "SecondTag"
   }
