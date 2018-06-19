@@ -1,4 +1,4 @@
-# example-terraform-azure
+# terraform-azure-example
 
 Example project that demonstrates how [Terraform][terraform-link] manages [Azure][azure-link] infrastructure.
 
